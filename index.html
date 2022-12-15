@@ -22,24 +22,33 @@ classDiagram
         Collection --|> List
 	List --> ArrayList
 	List --> LinkedList
+	List --> Vector
+	List --> Stack
         Collection --|> Set
             Set --> SortedSet
+	    SortedSet --> TreeSet
 	    Collection --|> Queue
 
     class Iterable{
 	java.util
     }
         class Collection {
+		---INTERFACE---
 
         }
             class Set {
-
+		---INTERFACE---
             }
             class SortedSet {
-
+		---INTERFACE---
+            }
+	    class TreeSet {
+		---CLASS---
             }
 
-        	class List   {
+        	class List:::interface   {
+		.        ----INTERFACE----      .   
+		                                          
 		- Methods are index-based
 		add()
 		get()
@@ -49,11 +58,19 @@ classDiagram
 		size()
 		}
 		class ArrayList {
+		.                          ----CLASS----                        . 
 		- For storing and accessing data
 		- Elements in an ArrayList are objects
 		- Cannot use primitives, must use wrapper class
 		}
+		class Vector {
+		---CLASS---
+		}
+		class Stack {
+		---CLASS---
+		}
 		class LinkedList {
+		.                          ----CLASS----                        .
 		- Used to manipulate data.
 		- Stores items in containers. 
 		- The list has a link to the first container and 
@@ -66,9 +83,10 @@ classDiagram
 		getFirst()
 		getLast()
 		}
+	
 
 	class Queue {
-
+	---INTERFACE---
 	}
 </pre>
     </div>
