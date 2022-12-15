@@ -3,16 +3,25 @@
 <head>
 	<meta charset="utf-8">
 	<link rel=”stylesheet” type=”text/css” href=”style.css”>
+<style>
+svg[id^="mermaid-"] { min-width:600px; max-width: 1000px;
+  overflow: hidden;
+} }
+</style>
+
+
+
+
 </head>
 <body>
 <center>
   <div class="mermaid">
 classDiagram
-direction TB
-     Iterable <-- Collection
-        Collection <-- List
-        Collection <-- Set
-        Set <-- SortedSet
+     Iterable --|> Collection
+        Collection --|> List
+        Collection --|> Set
+	Collection --|> Queue
+        Set --|> SortedSet
     class Iterable{
     
     }
@@ -28,20 +37,32 @@ direction TB
         
             }
 
-        class List {
-        
+        class List {	
+        	+asdasdaArray()
         }
-  </div>
+
+	class Queue {
+		
+	}
+</div>
 </center>
 
-<style>
-svg[id^="mermaid-"] { min-width: 200px; max-width: 400px; }
-</style>
-
-<script  
-src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.3.1/mermaid.min.js"></script>
-<script>mermaid.initialize({startOnLoad:true});
-	mermaid.flowchartConfig = {width: 100%};
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script>
+<script>
+window.addEventListener('load', function () {
+  var svgs = d3.selectAll(".mermaid svg");
+  svgs.each(function() {
+    var svg = d3.select(this);
+    svg.html("<g>" + svg.html() + "</g>");
+    var inner = svg.select("g");
+    var zoom = d3.zoom().on("zoom", function(event) {
+      inner.attr("transform", event.transform);
+    });
+    svg.call(zoom);
+  });
+});
 </script>
+<script>mermaid.initialize({startOnLoad:true, theme:dark});</script>
 </body>
 </html>
