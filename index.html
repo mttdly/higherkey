@@ -1,1 +1,47 @@
-<h1>test</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel=”stylesheet” type=”text/css” href=”style.css”>
+</head>
+<body>
+<center>
+  <div class="mermaid">
+classDiagram
+direction TB
+     Iterable <-- Collection
+        Collection <-- List
+        Collection <-- Set
+        Set <-- SortedSet
+    class Iterable{
+    
+    }
+
+    class Collection{
+
+    }
+
+        class Set {
+        
+        }
+            class SortedSet {
+        
+            }
+
+        class List {
+        
+        }
+  </div>
+</center>
+
+<style>
+svg[id^="mermaid-"] { min-width: 200px; max-width: 400px; }
+</style>
+
+<script  
+src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.3.1/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});
+	mermaid.flowchartConfig = {width: 100%};
+</script>
+</body>
+</html>
