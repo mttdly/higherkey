@@ -1,68 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<link rel=”stylesheet” type=”text/css” href=”style.css”>
-<style>
-svg[id^="mermaid-"] { min-width:600px; max-width: 1000px;
-  overflow: hidden;
-} }
-</style>
-
-
-
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 <center>
-  <div class="mermaid">
+<div class="tabs">
+    <span data-tab-value="#tab_1">Collections</span>
+    <span data-tab-value="#tab_2">Exceptions</span>
+    <span data-tab-value="#tab_3">Java I/O</span>
+</div>
+
+<div class="tab-content">
+    <div class="tabs__tab  active" id="tab_1" data-tab-info>
+        <p>Collections Hierarchy</p>
+        <pre class="mermaid">
 classDiagram
      Iterable --|> Collection
         Collection --|> List
+	List --> ArrayList
+	List --> LinkedList
         Collection --|> Set
-	Collection --|> Queue
-        Set --|> SortedSet
+            Set --> SortedSet
+	    Collection --|> Queue
+
     class Iterable{
-    
+	java.util
     }
+        class Collection {
 
-    class Collection{
-
-    }
-
-        class Set {
-        
         }
+            class Set {
+
+            }
             class SortedSet {
-        
+
             }
 
-        class List {	
-        	+asdasdaArray()
-        }
+        	class List   {
+		- Methods are index-based
+		add()
+		get()
+		set()
+		remove()
+		clear()
+		size()
+		}
+		class ArrayList {
+		- For storing and accessing data
+		- Elements in an ArrayList are objects
+		- Cannot use primitives, must use wrapper class
+		}
+		class LinkedList {
+		- Used to manipulate data.
+		- Stores items in containers. 
+		- The list has a link to the first container and 
+		each container has a link to the next 
+		container in the list.
+		addFirst()
+		addLast()
+		removeFirst()
+		removeLast()
+		getFirst()
+		getLast()
+		}
 
 	class Queue {
-		
-	}
-</div>
-</center>
 
+	}
+</pre>
+    </div>
+    <div class="tabs__tab active" id="tab_2" data-tab-info>
+       	
+        <pre class="mermaid">
+	classDiagram
+	class Exception {
+	}
+	</pre>
+    </div>
+    <div class="tabs__tab active" id="tab_3" data-tab-info>
+        <p>Java I/O Hierarchy</p>
+        <pre class="mermaid">
+	classDiagram
+	Closeable <|--InputStream : implements
+	Closeable <|-- OutputStream : implements
+	InputStream <-- FileInputStream
+	InputStream <-- ByteArrayInputStream
+	InputStream <-- FilterInputStream
+	InputStream <-- PipedInputStream
+	InputStream <-- ObjectInputStream
+	
+	FilterInputStream <-- DataInputStream
+	FilterInputStream <-- BufferedInputStream
+	FilterInputStream <-- PushBackInputStream
+
+	OutputStream <-- FileOutputStream
+	OutputStream <-- ByteArrayOutputStream
+	OutputStream <-- FilterOutputStream
+	OutputStream <-- PipedOutputStream
+	OutputStream <-- ObjectOutputStream
+
+	FilterOutputStream <-- DataOutputStream
+	FilterOutputStream <-- BufferedOutputStream
+	FilterOutputStream <-- PushBackOutputStream
+
+	class Closeable {
+	superinterface
+	}
+	class InputStream {
+	
+	}
+		class FileInputStream {
+		
+		}
+		class ByteArrayInputStream {
+		
+		}
+
+		class FilterInputStream {
+		
+		}
+			class DataInputStream {
+			}
+			class BufferedInputStream {
+			}
+			class PushBackInputStream {
+			}
+
+		class PipedInputStream {
+		
+		}
+		class ObjectInputStream {
+		
+		}
+
+
+	class OutputStream {
+	
+	}
+		class FileOutputStream {
+		
+		}
+		class ByteArrayOutputStream {
+		
+		}
+
+		class FilterOutputStream {
+		
+		}
+			class DataOutputStream {
+			}
+			class BufferedOutputStream {
+			}
+			class PushBackOutputStream {
+			}
+
+
+		class PipedOutputStream {
+		
+		}
+		class ObjectOutputStream {
+		
+		}
+
+
+
+
+    </div>
+</div>
+
+</center>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="https://unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script>
-<script>
-window.addEventListener('load', function () {
-  var svgs = d3.selectAll(".mermaid svg");
-  svgs.each(function() {
-    var svg = d3.select(this);
-    svg.html("<g>" + svg.html() + "</g>");
-    var inner = svg.select("g");
-    var zoom = d3.zoom().on("zoom", function(event) {
-      inner.attr("transform", event.transform);
-    });
-    svg.call(zoom);
-  });
-});
-</script>
-<script>mermaid.initialize({startOnLoad:true, theme:dark});</script>
+<script src="js/higherloader.js"></script>
 </body>
 </html>

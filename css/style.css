@@ -1,0 +1,41 @@
+
+    body {
+			background: rgb(112,128,144);
+		}
+
+		[data-tab-info] {
+			display: none;
+		}
+
+		.active[data-tab-info] {
+			display: block;
+		}
+
+		.tab-content {
+			font-size: 30px;
+			font-family: sans-serif;
+			font-weight: bold;
+			color: rgb(fff, fff, fff);
+		}
+
+		.tabs {
+			font-size: 40px;
+			color: rgb(255, 255, 255);
+			display: center;
+			margin: 0;
+		}
+
+		.tabs span {
+			background: rgb(ffff, ffff, ffff);
+			padding: 10px;
+			border: 1px solid  rgb(255, 255, 255);
+		}
+
+		.tabs span:hover {
+			background: rgb(164,219,232);
+			cursor: pointer;
+			color: black;
+		}
+
+        svg[id^="mermaid-"] { min-width: 1800px; max-width: 1800px;  min-height: 720px; max-height: 720px;
+    } 
